@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mortgage Quote Request Form</title>
+     <style>/* styles for the form */
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=date] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+input[type=radio] {
+  margin-right: 10px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+input[type=submit]:hover {
+  background-color: #3e8e41;
+}
+
+/* styles for the page */
+
+body {
+  background-color: #f7f7f7;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+img {
+        display: block;
+        margin: 0 auto;
+        max-width: 40%;
+      }.info {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+}
+small {
+  font-size: 0.8em;
+  color: gray;
+}
+
+
+</style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwU88oP-znKJXCteUbpECiOaum8842EKY&libraries=places"></script>
+  </head>
+  <body>
+    <img src="https://s3.amazonaws.com/lhp-public-images/lhp/203407_Nirvana_Roof/uploads/Official%252BVHL%252BLogo.png">
+    <h1>Mortgage Quote Request Form</h1>
+    <form id="mortgage-form" action="" method="POST">
+      <label for="referred_by">Referred by:</label>
+      <select id="referred_by" name="referred_by" required>
+        <option value="Nirvana Roof">Nirvana Roof</option>
+        <option value="Mike Grandjean">Mike Grandjean</option>
+        <option value="Fredo Goytia">Fredo Goytia</option>
+        <option value="Emile Sexton">Emile Sexton</option>
+        <option value="Unsure">Unsure</option>
+      </select><br>
+        <p>Loan Product Requested:</p>
+     <label for="DSCR_rent">DSCR Rental:</label>
+     <input type="radio" id="DSCR_rent" name="DSCR_rent" value="true"> <label for="bridge">Bridge Loan:</label>
+     <input type="radio" id="bridge" name="bridge" value="true">
+          <label for="fix_flip">Fix and Flip Loan:</label>
+     <input type="radio" id="fix_flip" name="fix_flip" value="true">
+          <label for="hard">Hard Money:</label>
+     <input type="radio" id="hard" name="bridge" value="true">
+        <br>
+      <label for="email_address">Email address:</label>
+      <input type="email" id="email_address" name="email_address" required><br>
+
+      <label for="business_name">Business name:</label>
+      <input type="text" id="business_name" name="business_name"><br>
+
+      <label for="guarantor_name">Guarantor name:</label>
+      <input type="text" id="guarantor_name" name="guarantor_name" required><br>
+
+      <label for="credit_score">Credit score:</label>
+      <select id="credit_score" name="credit_score" required>
+        <option value="720+">720+</option>
+        <option value="700-719">700-719</option>
+        <option value="680-699">680-699</option>
+        <option value="640-679">640-679</option>
+        <option value="620-639">620-639</option>
+        <option value="600-629">600-619</option>
+        <option value="575-599">575-599</option>
+
+      </select><br>
+
+      <label for="assets">Assets:</label>
+      <input type="number" id="assets" name="assets" step="0.01" required><br>
+
+      <label for="property_address">Property address:</label>
+      <input type="text" id="property_address" name="property_address" required>
+
+      <label for="property_type">Property type:</label>
+      <select id="property_type" name="property_type" required>
+        <option value="SFR">SFR</option>
+        <option value="multi-unit2-4">Multi-unit (2-4)</option>
+        <option value="multi-unit5+">Multi-unit (5+)</option>
+        <option value="condo">Condo</option>
+        <option value="townhome">Townhome</option>
+      </select><br>
+
+      <label for="purchase_price">Purchase price:</label>
+      <input type="number" id="purchase_price" name="purchase_price" step="0.01" required><br>
+
+      <label for="purchase_date">Purchase date:</label>
+      <input type="date" id="purchase_date" name="purchase_date" required><br>
+      <label>
+      <label for="title_seasoned">If refi-Title Seasoned (Months)<small>How many months has the title been in the name of the entity with which you are requesting pricing</small>:</label>
+      <input type="text" id="title_seasoned" name="title_seasoned"><br>
+      </label>
+      <label for="payoff">Payoff:</label>
+      <input type="number" id="payoff" name="payoff"step="0.01" required><br>
+      <label for="as_is_value">As-is value:</label>
+      <input type="number" id="as_is_value" name="as_is_value" step="0.01" required><br>
+
+      <label for="rehab_needed">Rehab needed:</label>
+      <input type="number" id="rehab_needed" name="rehab_needed" step="0.01" required><br>
+
+     <label for="finance_rehab_cost">Finance rehab cost:</label>
+     <input type="radio" id="finance_rehab_cost" name="finance_rehab_cost" value="true">Yes<br>
+
+     <label for="After_Repair_Value_Estimate">After repair value estimate:</label>
+     <input type="number" id="After_Repair_Value_Estimate" name="After_Repair_Value_Estimate" step="0.01" required><br>
+
+     <label for="loan_type">Loan type:</label>
+       <select id="loan_type" name="loan_type" required>
+       <option value="cash-out">Cash-out</option>
+       <option value="refi">Refi</option>
+       <option value="purchase">Purchase</option>
+     </select><br>
+
+     <label for="Est_Monthly_Rent">Est. monthly rent:</label>
+     <input type="number" id="Est_Monthly_Rent" name="Est_Monthly_Rent" step="0.01" required><br>
+
+     <label for="Experience_Last_3_years_flips">Experience (last 3 years) - flips:</label>
+     <input type="number" id="Experience_Last_3_years_flips" name="Experience_Last_3_years_flips" required><br>
+
+     <label for="Experience_Last_3_years_holds">Experience (last 3 years) - holds:</label>
+     <input type="number" id="Experience_Last_3_years_holds" name="Experience_Last_3_years_holds" required><br>
+
+     <label for="loan_term">Loan term:</label>
+      <select id="loan_term" name="loan_term" required>
+      <option value="fixed">Fixed</option>
+      <option value="ARM">ARM</option>
+      <option value="either">Either</option>
+       </select><br>
+      <label for="HOA">HOA (Monthly):</label>
+      <input type="number" id="HOA" name="HOA"step="0.01" ><br>
+      <label for="insurance">Insurance (Monthly):</label>
+      <input type="number" id="insurance" name="insurance" step="0.01" required><br>
+      <label for="property_tax">Property Tax (Monthly):</label>
+      <input type="number" id="property_tax" name="property_tax" step="0.01" required><br>
+      <label for="pre_pay">Pre-Payment Penalty Option:</label>
+       <select id="pre_pay" name="pre_pay">
+       <option value="3"><=3%</option>
+       <option value="5">5%</option>
+     </select><br>
+      <label for="notes">Notes:(Include any additional information that is relevant to your transaction) </label>
+      <textarea id="notes" name="notes"  rows="4" cols="50"  > </textarea> <br>
+    <input type="submit" value="Submit" onclick="showSubmissionMessage()">
+
+</form>
+<script>
+  function showSubmissionMessage() {
+    alert("Your data has been received. You will be contacted with pricing.");
+  }
+</script>
+
+<script>
+  var input = document.getElementById('property_address');
+  var options = {
+    types: ['address'],
+    componentRestrictions: {country: 'us'}
+  };
+  var autocomplete = new google.maps.places.Autocomplete(input, options);
+</script>
+
+      </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mortgage Quote Request Form</title>
+  <style>
+body {
+  background-color: #f7f7f7;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: regular;
+  color: grey;
+}
+
+p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: regular;
+  color: #333;
+}
+
+body {
+  text-align: center;
+  color: #333;
+}
+img {
+        display: block;
+        margin: 0 auto;
+        max-width: 20%;
+      }.info {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+}
+small {
+  font-size: 0.8em;
+  color: gray;
+}
+
+
+</style>
+
+</head>
+<body>
+<img src="https://s3.amazonaws.com/lhp-public-images/lhp/203407_Nirvana_Roof/uploads/Official%252BVHL%252BLogo.png">
+<h1>Mortgage Pricing Request </h1>
+
+<h3>We have received a pricing request from a prospective borrower. <br>Our System has indicated the transaction details
+  align with one of your loan products.<br> Please review the details below and reply with a current price quote.<br> If there
+  is any information missing, please let us know and we will follow up with the borrower.<br> Additionally, if you received
+  this email, and do not offer a product that matches the transaction details,<br> please let us know so that we can correct
+    our system. Thank you for your time and consideration </h3>
+
+<label for="referred_by">Referred by:</label>
+<p>{{ form_data.referred_by }}</p>
+<p>Loan Product Requested:</p>
+<label for="DSCR_rent">DSCR_rent:</label>
+<p>{{ form_data.DSCR_rent }}</p>
+
+<label for="brigge">bridge:</label>
+<p>{{ form_data.bridge }}</p>
+<label for="fix_flip">fix_flip:</label>
+<p>{{ form_data.fix_flip }}</p>
+<label for="hard_money">hard_money:</label>
+<p>{{ form_data.hard_money }}</p>
+
+<br>
+<label for="email_address">Email address:</label>
+<p>{{ form_data.email_address }}</p>  <br>
+
+<label for="business_name">Business name:</label>
+<p>{{ form_data.business_name}}</p>
+<label for="guarantor_name">Guarantor name:</label>
+<p>{{ form_data.guarantor_name }}</p>
+
+<label for="credit_score">Credit score:</label>
+<p>{{ form_data.credit_score }}</p>
+<label for="assets">Assets:</label>
+<p>{{ form_data.assets }}</p>
+<label for="property_address">Property address:</label>
+<p>{{ form_data.property_address }}</p>
+<label for="property_type">Property type:</label>
+<p>{{ form_data.property_type }}</p>
+<br>
+<label for="purchase_price">Purchase price:</label>
+<p>{{ form_data.purchase_price }}</p>
+<label for="purchase_date">Purchase date:</label>
+<p>{{ form_data.purchase_date }}</p>
+<label for="title_seasoned">If refi-Title Seasoned </label>
+<p>{{ form_data.title_seasoned }}</p>
+<label for="payoff">Payoff:</label>
+<p>{{ form_data.payoff }}</p>
+<label for="as_is_value">As-is value:</label>
+<p>{{ form_data.as_is_value }}</p>
+<label for="rehab_needed">Rehab needed:</label>
+<p>{{ form_data.rehab_needed }}</p>
+<label for="finance_rehab_cost">Finance rehab cost:</label>
+<p>{{ form_data.finance_rehab_cost }}</p>
+<label for="After_Repair_Value_Estimate">After repair value estimate:</label>
+<p>{{ form_data.After_Repair_Value_Estimate }}</p>
+<label for="loan_type">Loan type:</label>
+<p>{{ form_data.loan_type }}</p>
+<br>
+<label for="Est_Monthly_Rent">Est. monthly rent:</label>
+<p>{{ form_data.Est_Monthly_Rent }}</p>
+<label for="Experience_Last_3_years_flips">Experience (last 3 years) - flips:</label>
+<p>{{ form_data.Experience_Last_3_years_flips }}</p>
+<label for="Experience_Last_3_years_holds">Experience (last 3 years) - holds:</label>
+<p>{{ form_data.Experience_Last_3_years_holds }}</p>
+<label for="loan_term">Loan term:</label>
+<p>{{ form_data.loan_term }}</p>
+<br>
+<label for="HOA">HOA (Monthly):</label>
+<p>{{ form_data.HOA }}</p>
+<label for="insurance">Insurance (Monthly):</label>
+<p>{{ form_data.insurance }}</p>
+<label for="property_tax">Property Tax (Monthly):</label>
+<p>{{ form_data.property_tax }}</p>
+<label for="pre_pay">Pre-Payment Penalty Option:</label>
+<p>{{ form_data.pre_pay }}</p>
+<br>
+<label for="notes">Notes:(Include any additional information that is relevant to your transaction) </label>
+<p>{{ form_data.notes }}</p>
+
+
+</body>
+</html>
+
+
+
