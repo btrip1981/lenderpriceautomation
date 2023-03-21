@@ -125,7 +125,7 @@ small {
 
       <label for="credit_score">Credit score:</label>
       <select id="credit_score" name="credit_score" required>
-        <option value="720+">720+</option>
+        <option value="720-800">720+</option>
         <option value="700-719">700-719</option>
         <option value="680-699">680-699</option>
         <option value="640-679">640-679</option>
@@ -170,8 +170,8 @@ small {
      <label for="finance_rehab_cost">Finance rehab cost:</label>
      <input type="radio" id="finance_rehab_cost" name="finance_rehab_cost" value="true">Yes<br>
 
-     <label for="After_Repair_Value_Estimate">After repair value estimate:</label>
-     <input type="number" id="After_Repair_Value_Estimate" name="After_Repair_Value_Estimate" step="0.01" required><br>
+     <label for="property_value">After repair value estimate:</label>
+     <input type="number" id="property_value" name="property_value" step="0.01" required><br>
 
      <label for="loan_type">Loan type:</label>
        <select id="loan_type" name="loan_type" required>
@@ -208,6 +208,8 @@ small {
      </select><br>
       <label for="notes">Notes:(Include any additional information that is relevant to your transaction) </label>
       <textarea id="notes" name="notes"  rows="4" cols="50"  > </textarea> <br>
+       <input type="hidden" id="loan_amount" name="loan_amount">
+
     <input type="submit" value="Submit" onclick="showSubmissionMessage()">
 
 </form>
@@ -215,6 +217,21 @@ small {
   function showSubmissionMessage() {
     alert("Your data has been received. You will be contacted with pricing.");
   }
+</script>
+<script>
+  document.getElementById("mortgage-form").addEventListener("submit", function(event) {
+    const purchasePrice = parseFloat(document.getElementById("purchase_price").value);
+    const rehabNeeded = parseFloat(document.getElementById("rehab_needed").value);
+    const financeRehabCost = document.getElementById("finance_rehab_cost").checked;
+
+    let loanAmount = purchasePrice;
+
+    if (financeRehabCost) {
+      loanAmount += rehabNeeded;
+    }
+
+    document.getElementById("loan_amount").value = loanAmount;
+  });
 </script>
 
 <script>
