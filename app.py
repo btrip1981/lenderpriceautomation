@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect
 from flask_mail import Mail, Message
 import re
@@ -163,4 +164,4 @@ def send_email(matched_lenders, form_data):
 
 # DO NOT CHANGE ANY OF THIS CODE
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
