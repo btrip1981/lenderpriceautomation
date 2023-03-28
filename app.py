@@ -1,21 +1,18 @@
-import os
 from flask import Flask, render_template, request, redirect
-from flask_mail import Mail, Message
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import re
 
 app = Flask(__name__)
 # DO NOT CHANGE ANY OF THIS CODE
-# function to get email credentials from the file credentials.txt
-def get_credentials():
-    with open("credentials.txt", "r") as f:
-        email = f.readline().strip()
-        password = f.readline().strip()
 
-    return email, password
 #  global variables for email and password that use the flask mail library to send emails
 
 # DO NOT CHANGE ANY OF THIS CODE
-email, password = get_credentials()
+email = "vhlform@gmail.com"
+password = "ersfhbpjtorhyllm"
+
 
 app.config['MAIL_SERVER'] = 'smtp-gmail.com'
 app.config['MAIL_PORT'] = 587
@@ -24,7 +21,6 @@ app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = email
 app.config['MAIL_PASSWORD'] = password
 
-mail = Mail(app)
 
 # DO NOT CHANGE ANY OF THIS CODE
 # directing the flask app to the index.html (form) file and rendering it
@@ -150,18 +146,39 @@ def process_form_data(form_data):
     return matched_lenders
 # DO NOT CHANGE ANY OF THIS CODE
 # this function uses the outbound.html file as a template, populates it with the form data and sends it to the matched lenders
+
+
 def send_email(matched_lenders, form_data):
     subject = "Price Quote Request for VHL"
+    sender_email = 'bmailacct41@gmail.com'
+    sender_password = 'ztigmmwklvpvbhld'
 
-    with mail.connect() as conn:
-        for lender in matched_lenders:
-            msg = Message(subject,
-                          recipients=[lender["lender_name"]],
-                          sender=app.config['MAIL_USERNAME'])
-            msg.html = render_template('outbound.html', form_data=form_data)
-            conn.send(msg)
+    # Set up the SMTP server
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.login(sender_email, sender_password)
+
+    for lender in matched_lenders:
+        recipient_email = lender["lender_name"]
+
+        # Create a MIMEMultipart message object
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = recipient_email
+        msg['Subject'] = subject
+
+        # Render the HTML template
+        html_content = render_template('outbound.html', form_data=form_data)
+
+        # Attach the HTML content to the message
+        msg.attach(MIMEText(html_content, 'html'))
+
+        # Send the email
+        server.sendmail(sender_email, recipient_email, msg.as_string())
+
+    # Close the server connection
+    server.quit()
 
 
 # DO NOT CHANGE ANY OF THIS CODE
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run
