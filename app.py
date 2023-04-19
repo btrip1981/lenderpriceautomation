@@ -209,13 +209,13 @@ def read_qual_data():
 
 # DO NOT CHANGE ANY OF THIS CODE
 # this function calculates the loan to value ratio based on the info from the form
-def calculate_ltv(loan_amount, property_value):
-    return (loan_amount / property_value) * 100
+def calculate_ltv(loan_amt, property_value):
+    return (loan_amt / property_value) * 100
 
 # DO NOT CHANGE ANY OF THIS CODE
 # this function identifies the lenders that match the form data
-def match_lenders(loan_amount, property_value, credit_score):
-    ltv = calculate_ltv(loan_amount, property_value)
+def match_lenders(loan_amt, property_value, credit_score):
+    ltv = calculate_ltv(loan_amt, property_value)
     matched_lenders = []
 
     for lender in read_qual_data():
@@ -229,11 +229,11 @@ def match_lenders(loan_amount, property_value, credit_score):
 def process_form_data(form_data):
     credit_score_clean = re.sub(r'\D', '', form_data["credit_score"])
     credit_score = int(credit_score_clean)
-    loan_amount = float(form_data["loan_amount"])
+    loan_amt = float(form_data["loan_amt"])
     property_value = float(form_data["property_value"])
     credit_score = int(form_data["credit_score"])
 
-    matched_lenders = match_lenders(loan_amount, property_value, credit_score)
+    matched_lenders = match_lenders(loan_amt, property_value, credit_score)
     return matched_lenders
 # DO NOT CHANGE ANY OF THIS CODE
 # this function uses the outbound.html file as a template, populates it with the form data and sends it to the matched lenders
