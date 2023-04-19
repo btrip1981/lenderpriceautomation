@@ -211,7 +211,7 @@ small {
      </select><br>
       <label for="notes">Notes:(Include any additional information that is relevant to your transaction) </label>
       <textarea id="notes" name="notes"  rows="4" cols="50"  > </textarea> <br>
-       <input type="hidden" id="loan_amount" name="loan_amount">
+      
 
     <input type="submit" value="Submit" onclick="showSubmissionMessage()">
 
@@ -221,21 +221,7 @@ small {
     alert("Your data has been received. You will be contacted with pricing.");
   }
 </script>
-<script>
-  document.getElementById("mortgage-form").addEventListener("submit", function(event) {
-    const purchasePrice = parseFloat(document.getElementById("purchase_price").value);
-    const rehabNeeded = parseFloat(document.getElementById("rehab_needed").value);
-    const financeRehabCost = document.getElementById("finance_rehab_cost").checked;
 
-    let loanAmount = purchasePrice;
-
-    if (financeRehabCost) {
-      loanAmount += rehabNeeded;
-    }
-
-    document.getElementById("loan_amount").value = loanAmount;
-  });
-</script>
 
 <script>
   var input = document.getElementById('property_address');
