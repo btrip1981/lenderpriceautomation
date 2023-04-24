@@ -105,16 +105,15 @@ small {
         <option value="Emile Sexton">Emile Sexton</option>
         <option value="Unsure">Unsure</option>
       </select><br>
-        <p>Loan Product Requested:</p>
-     <label for="DSCR_rent">DSCR Rental:</label>
-     <input type="radio" id="DSCR_rent" name="DSCR_rent" value="true"> <label for="bridge">Bridge Loan:</label>
-     <input type="radio" id="bridge" name="bridge" value="true">
-          <label for="fix_flip">Fix and Flip Loan:</label>
-     <input type="radio" id="fix_flip" name="fix_flip" value="true">
-          <label for="hard">Hard Money:</label>
-     <input type="radio" id="hard" name="bridge" value="true">
-        <br>
-      <label for="email_address">Email address:</label>
+            <label for="Loan_Product_Requested:">Referred by:</label>
+      <select id="referred_by" name="referred_by" required>
+        <option value="DSCR_rent">DSCR Rent</option>
+        <option value="bridge">Bridge</option>
+        <option value="fix_flip">Fix and Flip</option>
+        <option value="hard">Hard Money</option>
+        <option value="Unsure">Unsure</option>
+      </select><br>
+        <label for="email_address">Email address:</label>
       <input type="email" id="email_address" name="email_address" required><br>
 
       <label for="business_name">Business name:</label>
