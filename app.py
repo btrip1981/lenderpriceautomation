@@ -170,14 +170,7 @@ def read_qual_data():
             "season": None,
         },
 
-        {
-            "lender_name": "Ken.Fox@acralending.com",
-            "min_loan_amt": 100000,
-            "min_prop_value": 100000,
-            "LTV": 90,
-            "credit_score": 575,
-            "season": None,
-        },
+  
             {
             "lender_name": "Clark.Knoblock@ChangeWholesale.com",
             "min_loan_amt": 100000,
